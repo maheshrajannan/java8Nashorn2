@@ -1,0 +1,6 @@
+https://www.reddit.com/r/java/comments/2ai6dm/question_what_is_the_real_world_usecase_of/
+
+http://stackoverflow.com
+/questions/27636806/using-react-with-nashorn-throws-referenceerror-console-is-not-defined
+
+https://www.youtube.com/watch?v=ioXBf3FAJt8
