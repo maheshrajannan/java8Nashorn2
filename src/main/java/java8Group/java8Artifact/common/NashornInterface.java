@@ -12,22 +12,21 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * @author maheshrajannan 
- * Non singleton, delegate to nashornEngine. Each
- * instance of interface holds an instance of nashHorn Engine.
- * This is to prevent re-initialization of nashorn engine, invocable etc.
- *  
+ * @author maheshrajannan Non singleton, delegate to nashornEngine. Each
+ *         instance of interface holds an instance of nashHorn Engine. This is
+ *         to prevent re-initialization of nashorn engine, invocable etc.
+ * 
  */
 public class NashornInterface {
 	/**
-	 * has one instance of engine manager. 
+	 * has one instance of engine manager.
 	 */
 	ScriptEngineManager engineManager = null;
 	/**
 	 * has one instance of engine
 	 */
 	ScriptEngine engine = null;
-	
+
 	/**
 	 * This is for java function invocation of java script functions.
 	 */
@@ -41,8 +40,7 @@ public class NashornInterface {
 	}
 
 	/**
-	 * Initializes script engine if necessary and returns
-	 * it.
+	 * Initializes script engine if necessary and returns it.
 	 * 
 	 * @return
 	 */
@@ -58,31 +56,33 @@ public class NashornInterface {
 
 	/**
 	 * Initializes invocable if necessary and returns it.
+	 * 
 	 * @return
 	 */
 	public Invocable getInvocable() {
-		if(invocable == null) {
+		if (invocable == null) {
 			invocable = (Invocable) getNashornEngine();
 		}
 		return invocable;
 	}
 
 	/**
-	 * Evaluates any in-line java script function and returns any 
-	 * return arguments associated with it.
+	 * Evaluates any in-line java script function and returns any return
+	 * arguments associated with it.
 	 * 
 	 * @param engine
 	 * @param js
 	 * @return
 	 * @throws ScriptException
 	 */
-	public Object evaluateJs(ScriptEngine engine, String js) throws ScriptException {
+	public Object evaluateJs(ScriptEngine engine, String js)
+			throws ScriptException {
 		return engine.eval(js);
 	}
 
 	/**
-	 * Evaluates any in-line java script function and returns any 
-	 * return arguments associated with it.
+	 * Evaluates any in-line java script function and returns any return
+	 * arguments associated with it.
 	 * 
 	 * @param js
 	 * @return
@@ -93,8 +93,8 @@ public class NashornInterface {
 	}
 
 	/**
-	 * Evaluates any java script file.
-	 * Usually does not result in a return argument.
+	 * Evaluates any java script file. Usually does not result in a return
+	 * argument.
 	 * 
 	 * @param nashornEngine
 	 * @param fileReader
@@ -105,10 +105,10 @@ public class NashornInterface {
 			throws ScriptException {
 		return nashornEngine.eval(fileReader);
 	}
-	
+
 	/**
-	 * Evaluates any java script file.
-	 * Usually does not result in a return argument.
+	 * Evaluates any java script file. Usually does not result in a return
+	 * argument.
 	 * 
 	 * @param fileReader
 	 * @return
@@ -119,8 +119,8 @@ public class NashornInterface {
 	}
 
 	/**
-	 * Evaluates any java script file.
-	 * Usually does not result in a return argument.
+	 * Evaluates any java script file. Usually does not result in a return
+	 * argument.
 	 * 
 	 * @param filePath
 	 * @return
@@ -131,5 +131,5 @@ public class NashornInterface {
 			throws ScriptException, FileNotFoundException {
 		return evaluateJs(getNashornEngine(), new FileReader(filePath));
 	}
-	
+
 }

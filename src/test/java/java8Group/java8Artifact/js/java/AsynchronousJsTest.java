@@ -73,8 +73,8 @@ public class AsynchronousJsTest {
 	 * @throws NoSuchMethodException
 	 */
 	@Test
-	public void testAsyncCall()
-			throws FileNotFoundException, ScriptException, NoSuchMethodException {
+	public void testAsyncCall() throws FileNotFoundException, ScriptException,
+			NoSuchMethodException {
 		nashornInterface.evaluateJsFile(
 				"src/main/java/java8Group/java8Artifact/js/asynchronous.js");
 		String result = (String) nashornInterface.getInvocable()

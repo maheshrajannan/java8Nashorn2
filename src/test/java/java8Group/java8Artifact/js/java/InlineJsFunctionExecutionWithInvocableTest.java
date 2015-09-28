@@ -75,12 +75,12 @@ public class InlineJsFunctionExecutionWithInvocableTest {
 		nashHornInterface.evaluateJs(functionToEvaluate);
 		Invocable invocable = nashHornInterface.getInvocable();
 		result = invocable.invokeFunction(functionCall, 10, 2);
-		System.out.println(
-				"\n functionToEvaluate " + functionToEvaluate + "\n functionCall "
-						+ functionCall + "(10,2)" + "\n return value " + result);
+		System.out.println("\n functionToEvaluate " + functionToEvaluate
+				+ "\n functionCall " + functionCall + "(10,2)"
+				+ "\n return value " + result);
 
-		Assert.assertEquals("Expected 12 but got something else", new Double("12"),
-				new Double(result.toString()));
+		Assert.assertEquals("Expected 12 but got something else",
+				new Double("12"), new Double(result.toString()));
 
 	}
 
@@ -93,14 +93,16 @@ public class InlineJsFunctionExecutionWithInvocableTest {
 	 * @throws FileNotFoundException
 	 */
 	@Test
-	public final void testInvokeJsFile() throws FileNotFoundException, ScriptException {
+	public final void testInvokeJsFile()
+			throws FileNotFoundException, ScriptException {
 		nashHornInterface.evaluateJsFile(
 				"src/main/java/java8Group/java8Artifact/js/" + "adder.js");
 		Invocable invocable = nashHornInterface.getInvocable();
 		Adder adder = invocable.getInterface(Adder.class);
 		Object result = null;
 		result = adder.sum(2, 3);
-		Assert.assertEquals("Expected 5 but got something else", "5", result.toString());
+		Assert.assertEquals("Expected 5 but got something else", "5",
+				result.toString());
 
 	}
 

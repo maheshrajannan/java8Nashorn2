@@ -55,7 +55,8 @@ public class InlineJavaScriptExecutionTest {
 	 * Test method for
 	 * {@link java8Group.java8Artifact.js.java.InlineJavaScriptExecution#main(java.lang.String[])}
 	 * This is just to test in-line execution of java script.
-	 * @throws ScriptException 
+	 * 
+	 * @throws ScriptException
 	 * 
 	 */
 	@Test
@@ -67,7 +68,8 @@ public class InlineJavaScriptExecutionTest {
 		System.out.println("\n functionToEvaluate " + functionToEvaluate
 				+ "\n functionCall " + functionCall + "\n return value "
 				+ result);
-		Assert.assertEquals("Expected 3 but got something else","3", result.toString());
+		Assert.assertEquals("Expected 3 but got something else", "3",
+				result.toString());
 	}
 
 }

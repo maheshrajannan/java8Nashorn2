@@ -7,11 +7,12 @@ console = {
     error: print
 };
 
-//INFO: for browser window functions like timeout, below are java
-//implementations in javascript.
-//References:https://blogs.oracle.com/nashorn/entry/setinterval_and_settimeout_javascript_functions
-//These are not necessary for implementation in browser context, as browser's Window object
-//provides default implementations of time out.
+// INFO: for browser window functions like timeout, below are java
+// implementations in javascript.
+// References:https://blogs.oracle.com/nashorn/entry/setinterval_and_settimeout_javascript_functions
+// These are not necessary for implementation in browser context, as browser's
+// Window object
+// provides default implementations of time out.
 
 var Platform = Java.type("javafx.application.Platform");
 var Timer    = Java.type("java.util.Timer");
@@ -74,21 +75,26 @@ function clearImmediate(timer) {
     clearTimerRequest(timer);
 }
 
-//--INFO: Comment till here for execution in browser context.
+// --INFO: Comment till here for execution in browser context.
 
 function asynccall() {
 console.log("Started at ");
 
 setTimeout(function timeout() {
-	//--INFO: This never gets called from nashorn javascript engine because the engine 
-	//exits as soon as it gets evaluated.
-	//In short, the execution context of nashorn javascript engine, is short lived
-	//just like your java main thread.
-	//It therefore behaves differently from browser(web) context, because browser context
-	//is long lived than the nashorn(java) context.
-	//So javascript is a single threaded event loop.Browser, plugs in a callback function,
-	//to the task queue and javascript's event loop executes it.This does NOT happen
-	//from javascript context.
+	// --INFO: This never gets called from nashorn javascript engine because the
+	// engine
+	// exits as soon as it gets evaluated.
+	// In short, the execution context of nashorn javascript engine, is short
+	// lived
+	// just like your java main thread.
+	// It therefore behaves differently from browser(web) context, because
+	// browser context
+	// is long lived than the nashorn(java) context.
+	// So javascript is a single threaded event loop.Browser, plugs in a
+	// callback function,
+	// to the task queue and javascript's event loop executes it.This does NOT
+	// happen
+	// from javascript context.
 	console.log("I just timed out!");
 }, 0);
 
@@ -96,5 +102,5 @@ console.log("End Of Asynccall");
 return "SUCCESS";
 }
 
-//INFO: Please comment this code below to run in browser context
-//asynccall();
+// INFO: Please comment this code below to run in browser context
+// asynccall();
